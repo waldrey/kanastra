@@ -15,4 +15,15 @@ class BillingRepository extends AbstractRepository implements BillingRepositoryC
     {
         return $this->model->insert($data);
     }
+
+    public function getByDebtId($debtId)
+    {
+        return $this->model->where('debtId', $debtId)->first();
+    }
+
+    public function update($dataUpdate, $billingId)
+    {
+        $billing = $this->model->find($billingId);
+        return $billing->update($dataUpdate);
+    }
 }
