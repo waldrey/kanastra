@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories
+namespace App\Core\Repositories
 
 abstract class AbstractRepository
 {
