@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Billing\Requests;
+namespace Api\Billing\Requests;
 
 use Core\Http\Requests\APIValidationRequest;
 use Illuminate\Http\Request;

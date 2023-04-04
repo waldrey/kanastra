@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Api\Billing\Controllers;
+namespace Api\Billing\Controllers;
 
 use Illuminate\Http\Request;
-use Core\Http\Controllers\BaseController;
 
-use App\Api\Billing\Requests\BillingRequest;
+use Core\Http\Controllers\BaseController;
+use Core\Events\BillingCreated;
+use Api\Billing\Requests\BillingRequest;
 use Domain\Billing\Actions\CreateBillingAction;
 use Utils\Parsers\Parsers;
 use Utils\Formats\FormatBillingData;

@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Api\Billing\Controllers\BillingController;
+use Api\Billing\Controllers\BillingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +18,8 @@ use App\Api\Billing\Controllers\BillingController;
 Route::group(['prefix' => 'v1'], function () {
 
     Route::group(['prefix' => 'billings'], function(){
-        Route::post('/batch', 'App\Api\Billing\Controllers\BillingController@batch');
-        Route::post('/webhook', 'App\Api\Billing\Controllers\BillingController@webhook');
+        Route::post('/batch', 'Api\Billing\Controllers\BillingController@batch');
+        Route::post('/webhook', 'Api\Billing\Controllers\BillingController@webhook');
     });
 
 });
