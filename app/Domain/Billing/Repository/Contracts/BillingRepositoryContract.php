@@ -6,5 +6,6 @@ interface BillingRepositoryContract
 {
 
     public function all();
+    public function insert($data);
 
 }

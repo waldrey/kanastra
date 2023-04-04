@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Providers;
+namespace Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -12,8 +12,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            'Domain\Billing\Repository\Contract\BillingRepositoryContract',
-            'Domain\Billing\Repository\Eloquent'
+            'Domain\Billing\Repository\Contracts\BillingRepositoryContract',
+            'Domain\Billing\Repository\Eloquent\BillingRepository'
         );
     }
 

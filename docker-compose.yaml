@@ -39,6 +39,8 @@ services:
          MYSQL_PASSWORD: ${DB_PASSWORD:-root}
       volumes:
         - storage-database:/var/lib/mysql
+      ports:
+        - "3388:3306"
       networks:
         - kanastra-network
 
