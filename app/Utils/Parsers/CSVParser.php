@@ -14,7 +14,7 @@ class CSVParser
         $csv = fopen($file, 'r');
 
         while (!feof($csv)) {
-           $rows[] = fgetcsv($csv, 0, $delimiter)[0]; 
+           $rows[] = explode(',' , fgetcsv($csv, 0, $delimiter)[0]); 
         }
         fclose($csv);
         
