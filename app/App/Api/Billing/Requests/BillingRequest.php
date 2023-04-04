@@ -2,7 +2,7 @@
 
 namespace App\Api\Billing\Requests;
 
-use App\Core\Http\Requests\APIValidationRequest;
+use Core\Http\Requests\APIValidationRequest;
 use Illuminate\Http\Request;
 use Domain\Billing\Models\Billing;
 

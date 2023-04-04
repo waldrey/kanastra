@@ -3,7 +3,7 @@
 namespace App\Api\Billing\Controllers;
 
 use Illuminate\Http\Request;
-use App\Core\Http\Controllers\BaseController;
+use Core\Http\Controllers\BaseController;
 
 use App\Api\Billing\Requests\BillingRequest;
 use Domain\Billing\Actions\CreateBillingAction;
