@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 class FormatBillingData 
 {
-    public static function handle($billings) 
+    public static function formatTypes($billings) 
     {
         foreach ($billings as $key => $billing) {
             $billings[$key]['governmentId'] = (int)$billing['governmentId'];
@@ -17,5 +17,19 @@ class FormatBillingData
         }
 
         return $billings;
+    }
+
+    public static function formatResponse($billings) 
+    {
+        $billingsResponse = [];
+        foreach ($billings as $key => $billing) {
+            array_push($billingsResponse, [
+                'name' => $billing['name'],
+                'debtAmount' => $billing['debtAmount'],
+                'debtId' => $billing['debtId'],
+            ]);
+        }
+
+        return $billingsResponse;
     }
 }
