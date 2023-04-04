@@ -19,6 +19,18 @@ class FormatBillingData
         return $billings;
     }
 
+    public static function formatBankHook($billing) 
+    {
+        $billingFormatted = [
+            'debtId' => (int) $billing['debtId'],
+            'paid_amount' => floatval($billing['paidAmount']),
+            'paid_at' => $billing['paidAt'],
+            'updated_at' => Carbon::now('utc')->toDateTimeString(),
+        ];
+
+        return $billingFormatted;
+    }
+
     public static function formatResponse($billings) 
     {
         $billingsResponse = [];

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->decimal('debtAmount', 12, 2);
             $table->date('debtDueDate');
             $table->integer('debtId');
-            $table->date('paid_at')->nullable();
+            $table->datetime('paid_at')->nullable();
+            $table->decimal('paid_amount', 12, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
