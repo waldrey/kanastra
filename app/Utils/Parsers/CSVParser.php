@@ -13,11 +13,19 @@ class CSVParser
     {
         $csv = fopen($file, 'r');
 
+        $header;
+        $numberRows = 0;
         while (!feof($csv)) {
-           $rows[] = explode(',' , fgetcsv($csv, 0, $delimiter)[0]); 
+            if ($numberRows == 0) {
+                $header = explode(',', fgetcsv($csv, 0, $delimiter)[0]);
+                $numberRows++;
+            }
+            
+           $line = explode(',', fgetcsv($csv, 0, $delimiter)[0]);
+           $rows[] = array_combine($header, $line);
         }
         fclose($csv);
-        
+
         return $rows;
     }
 }
