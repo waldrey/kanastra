@@ -3,7 +3,7 @@
 </p>
 
 # Kanastra Hiring Challenge
-| Desenvolver um sistema de cobrança que recebe um CSV e baseado nos inputs do CSV precisamos disparar uma criação de boleto e enviando email do mesmo para a lista sobre a cobrança. Além disso criar um endpoint que vai servir como webhook para os alertas do banco que ocorreu um pagamento da cobrança X
+> Desenvolver um sistema de cobrança que recebe um CSV e baseado nos inputs do CSV precisamos disparar uma criação de boleto e enviando email do mesmo para a lista sobre a cobrança. Além disso criar um endpoint que vai servir como webhook para os alertas do banco que ocorreu um pagamento da cobrança X
 
 ### Sobre API
 Foi desenvolvida utilizando PHP (8.1) juntamente com framework Laravel (10), ideia foi abstrair máximo das regras de negócio (camada de domínio) da aplicação, não utilizei a abstração de email do Laravel para criar um adapter capaz de simular envio de e-mail para cliente sobre a disponibilidade do boleto. Trabalhei com **Events/Listeners** do Laravel para tratar a geração de um boleto e envio de e-mail após a cobrança ser registrada no banco dados.
