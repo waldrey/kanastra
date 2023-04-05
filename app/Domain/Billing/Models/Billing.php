@@ -20,6 +20,8 @@ class Billing extends Model
         'debtDueDate',
         'debtId',
         'paid_at',
+        'paid_amount',
+        'paid_by',
     ];
 
     protected $dates = [

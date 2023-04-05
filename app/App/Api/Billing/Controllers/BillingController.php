@@ -31,7 +31,7 @@ class BillingController extends BaseController
             return $this->sendResponse($receiveHook, 'Billing updated with success!');
 
         } catch (Exception $e) {
-            dd($e);
+            return $this->sendError($e->getMessage(), 500);
         }
     }
 
@@ -59,7 +59,7 @@ class BillingController extends BaseController
 
             return $this->sendResponse(FormatBillingData::formatResponse($billingsData), 'Billing registred with success!');
         } catch (Exception $e) {
-            dd($e);
+            return $this->sendError($e->getMessage(), 500);
         }
     }
 }

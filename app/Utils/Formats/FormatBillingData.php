@@ -25,6 +25,7 @@ class FormatBillingData
             'debtId' => (int) $billing['debtId'],
             'paid_amount' => floatval($billing['paidAmount']),
             'paid_at' => $billing['paidAt'],
+            'paid_by' => $billing['paidBy'],
             'updated_at' => Carbon::now('utc')->toDateTimeString(),
         ];
 

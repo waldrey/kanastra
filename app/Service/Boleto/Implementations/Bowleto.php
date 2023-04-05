@@ -23,7 +23,7 @@ class Bowleto implements BoletoContract
 
             LoggerApplication::register('[BOWLETO] Criado um boleto para o cliente ' . $boleto['name'] .' com código de barras em ' . $boleto['codeBar'] . ' com vencimento para ' . $boleto['dueDate']);
         } catch (Exception $e) {
-            dd($e);
+            throw new Exception($e);
         }
 
         return $boleto;

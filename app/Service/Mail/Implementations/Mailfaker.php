@@ -17,7 +17,7 @@ class Mailfaker implements MailContract
         try {            
             LoggerApplication::register('[MAILFAKER] Email ('. $subject .') enviado para cliente '. $to . ' notificando seu débito em aberto com a Kanastra');
         } catch (Exception $e) {
-            dd($e);
+            throw new Exception($e);
         }
     }
 }
