@@ -36,6 +36,10 @@ class BillingController extends BaseController
         try {
             $billings = $request->all();
 
+            if (!isset($billings['files'])) {
+                return $this->sendError('CSV not found', 400);
+            }
+
             $parserManager = new Parsers('csv');
             $billingsRows = $parserManager->parser->handle($billings['files']);
 
@@ -43,6 +47,10 @@ class BillingController extends BaseController
             $response = $action($billingsData);
             if (!$response) {
                 return $this->sendError('Unable to add billings', 500);
+            }
+
+            foreach ($billingsData as $billing) {
+                event(new BillingCreated($billing));
             }
 
             return $this->sendResponse(FormatBillingData::formatResponse($billingsData), 'Billing registred with success!');
