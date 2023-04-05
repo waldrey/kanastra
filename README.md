@@ -24,3 +24,7 @@ Foi desenvolvida utilizando PHP (8.1) juntamente com framework Laravel (10), ide
 
 1. Acesse o container da aplicação com `docker container exec -ti kanastra-app bash`;
 2. Execute o comando `php artisan test`.
+
+### Arquivos para validar os endpoints
+- [CSV 1 billing](https://github.com/waldrey/kanastra/blob/main/tests/Feature/CreateBilling/billings-kanastra.csv)
+- [CSV multibilling](https://github.com/waldrey/kanastra/blob/main/tests/Feature/CreateBilling/billings-multi-kanastra.csv)
