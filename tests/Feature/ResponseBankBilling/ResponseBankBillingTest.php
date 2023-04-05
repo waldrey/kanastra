@@ -8,6 +8,21 @@ use Illuminate\Http\UploadedFile;
 class ResponseBankBillingTest extends TestCase
 {
 
+    public function test_response_bank_billing_without_payload(): void
+    {
+        $dataBank = [];
+
+        $response = $this->post('/api/v1/billings/webhook', $dataBank);
+
+        $response->assertStatus(400);
+        $response->assertBadRequest();
+        $response->assertJson([
+            'success' => false,
+            'message' => 'Payload empty'
+        ], $strict = false);
+        
+    }
+
     public function test_response_bank_billing_with_debtid_exists_in_database(): void
     {
         $dataBank = [

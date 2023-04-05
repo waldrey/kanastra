@@ -19,6 +19,10 @@ class BillingController extends BaseController
         try {
             $receiveHook = $request->all();
 
+            if (empty($receiveHook)) {
+                return $this->sendError('Payload empty', 400);
+            }
+
             $response = $action(FormatBillingData::formatBankHook($receiveHook));
             if (!$response) {
                 return $this->sendError('Billing not found', 404);
@@ -34,14 +38,14 @@ class BillingController extends BaseController
     public function batch(BillingRequest $request, CreateBillingAction $action)
     {
         try {
-            $billings = $request->all();
+            $billings = $request->file;
 
-            if (!isset($billings['files'])) {
+            if (!isset($billings)) {
                 return $this->sendError('CSV not found', 400);
             }
 
             $parserManager = new Parsers('csv');
-            $billingsRows = $parserManager->parser->handle($billings['files']);
+            $billingsRows = $parserManager->parser->handle($billings);
 
             $billingsData = FormatBillingData::formatTypes($billingsRows);     
             $response = $action($billingsData);
