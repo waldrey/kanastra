@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'oskei';
+    return view('home');
+});
+
+Route::get('/docs', function () {
+    return View::make(File::get(public_path() . '/docs/index.html'));
+});
+
+Route::get('/insomnia.json', function () {
+    return File::get(public_path() . '/docs/docs/insomnia.json');
 });
